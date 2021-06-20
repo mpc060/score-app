@@ -1,0 +1,44 @@
+$variables: (
+    --defaultColor: var(--defaultColor),
+
+    --outdoorColor: var(--outdoorColor),
+
+    --grayColor: var(--grayColor),
+
+    --grayColorDark: var(--grayColorDark),
+
+    --grayColorLight: var(--grayColorDark),
+
+    --whiteColor: var(--whiteColor),
+
+    --redColor: var(--redColor),
+
+    --greenColor: var(--greenColor),
+
+    --yellowColor: var(--yellowColor),
+
+    --blueColor: var(--blueColor),
+
+    --blackColor: var(--blackColor),
+);
+
+@function var($variable) {
+    @return map-get($variables, $variable);
+}
+
+::-webkit-scrollbar {
+    border-radius: 20px;
+    background-color: #e2e2e2;
+}
+
+::-webkit-scrollbar-track {
+    width: 4px;
+    height: 4px;
+    border-radius: 20px;
+    background-color: #e2e2e2;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: #b3b3b3;
+}

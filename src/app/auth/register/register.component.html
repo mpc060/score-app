@@ -1,0 +1,50 @@
+<div id="register">
+
+    <div class="container">
+
+        <div class="title"> Cadastro </div>
+
+        <div class="form">
+            <app-form-input label="Firstname" [(selected)]="formRegister.value.firstname"></app-form-input>
+
+            <app-form-input label="Lastname" [(selected)]="formRegister.value.lastname"></app-form-input>
+        </div>
+
+        <div class="form">
+            <app-form-input label="email" [(selected)]="formRegister.value.email"></app-form-input>
+        </div>
+
+        <div class="form">
+            <app-form-input label="state" [(selected)]="formRegister.value.state"></app-form-input>
+
+            <app-form-input label="city" [(selected)]="formRegister.value.city"></app-form-input>
+        </div>
+
+        <div class="form">
+            <app-form-input label="address" [(selected)]="formRegister.value.address"></app-form-input>
+        </div>
+
+        <div class="form">
+            <app-form-input label="phone" [(selected)]="formRegister.value.phone"></app-form-input>
+
+            <app-form-input label="mobilephone" [(selected)]="formRegister.value.mobilephone"></app-form-input>
+        </div>
+
+        <div class="form">
+            <app-form-input label="password1" [(selected)]="formRegister.value.password1"></app-form-input>
+
+            <app-form-input label="password2" [(selected)]="formRegister.value.password2"></app-form-input>
+        </div>
+
+        <div class="button" (click)="onSubmit()">
+            Cadastrar
+        </div>
+
+        <div class="register">
+            <div> Já possui cadastro? </div>
+            <div routerLink="/auth/login"> ENTRE </div>
+        </div>
+
+    </div>
+
+</div>

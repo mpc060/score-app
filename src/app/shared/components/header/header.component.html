@@ -1,0 +1,19 @@
+<div id="header" *ngIf="(authenticated$ | async) && (user$ | async)">
+
+    <nav class="left">
+        <ul>
+            <li *ngFor="let item of menuItens" [class.active]="item.active" (click)="changeView(item)"
+                [routerLink]="item.route">
+                {{ item.name }}
+            </li>
+        </ul>
+    </nav>
+
+    <nav class="right">
+        {{ (user$ | async)?.email }}
+        <div class="button" (click)="logout()"> Exit </div>
+    </nav>
+
+</div>
+
+<router-outlet></router-outlet>

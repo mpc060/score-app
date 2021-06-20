@@ -1,0 +1,17 @@
+@import "./theme/angular-material.scss";
+@import "./theme/styles-template.scss";
+
+html, body {
+    min-width: 100%;
+    min-height: 100%;
+
+    * {
+        outline: none;
+    }
+}
+
+body {
+    overflow: hidden;
+    font-size: 62.5%;
+}
+

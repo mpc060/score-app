@@ -1,0 +1,59 @@
+@import '../../../../theme/styles-template';
+
+#header {
+    position: relative;
+    height: 60px;
+    background-color: var(--outdoorColor);
+    padding: 9px 40px;
+    z-index: 1;
+    margin-bottom: 20px;
+
+    .left {
+        display: inline-block;
+    
+        ul {
+            li {
+                position: relative;
+                display: inline-block;
+                font-size: 1.6em;
+                color: var(--whiteColor);
+                cursor: pointer;
+                padding: 20.5px 0;
+
+        
+                &:after {
+                    position: absolute;
+                    display: none;
+                    content: '';
+                    width: 100%;
+                    height: 4px;
+                    left: 0%;
+                    bottom: -8px;
+                    background-color: var(--defaultColor);
+                }
+    
+                &:hover, &.active {
+                    &:after {
+                        display: inherit;
+                    }
+                }
+            }
+        
+            li + li {
+                margin-left: 28px;
+            }
+        }
+    }
+
+    .right {
+        display: inline-flex;
+        gap: 10px;
+        color: var(--whiteColor);
+        float: right;
+        line-height: 60px;
+        
+        .button {
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "default": {
+        "defaultColor": "#38C685",
+        "outdoorColor": "#222F9F",
+        "grayColor": "#CBCBCB",
+        "grayColorLight": "#E2E2E2",
+        "grayColorDark": "#8E8E8E",
+        "whiteColor": "#FFFFFF",
+        "redColor": "#E6403E",
+        "greenColor": "#68FF17",
+        "yellowColor": "#D5D50D",
+        "blueColor": "#3f51b5",
+        "blackColor": "#000000"
+    }
+}

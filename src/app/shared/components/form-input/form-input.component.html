@@ -1,0 +1,13 @@
+<div id="form-input-text">
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{ label }}</mat-label>
+
+        <ng-container>
+            <input matInput [maxlength]="maxLength" [(ngModel)]="selected"
+                (ngModelChange)="selectedChangeValue($event);">
+        </ng-container>
+
+        <span *ngIf="validate?.error" [innerHTML]="validate?.message" class="error"></span>
+
+    </mat-form-field>
+</div>

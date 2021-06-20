@@ -1,0 +1,23 @@
+<div id="table" *ngIf="(dataTable | async)?.length > 0">
+
+    <div class="table-header" [ngStyle]="setCols()">
+        <div class="center" *ngFor="let item of header; let i = index">
+
+            <div class="item-header"> {{ item }} </div>
+            
+        </div>
+    </div>
+
+    <div class="table-items">
+        <div class="content-table" *ngFor="let item of dataTable | async; let i = index">
+            <div class="content-item" [ngClass]="i % 2 == 0 ? 'gray' : 'white'" [ngStyle]="setCols()">
+
+                <div class="center" *ngFor="let prop of item | keyvalue:keepOriginalOrder">
+                    {{ prop.value }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
