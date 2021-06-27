@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/shared/models/user/user';
@@ -17,14 +17,14 @@ export class RegisterComponent implements OnInit {
         'firstname': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(16)]],
         'lastname': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(16)]],
         'address': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(32)]],
-        'city': ['', [Validators.required, Validators.minLength(3),Validators.maxLength(16)]],
+        'city': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(16)]],
         'state': ['', [Validators.required, Validators.minLength(2)]],
         'phone': ['', [Validators.required]],
         'mobilephone': ['', [Validators.required]],
         'email': ['', [Validators.required, Validators.email]],
-        'password1': ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
-        'password2': ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
-    });
+        'password': ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
+        'confirmPassword': ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
+    }, { validator: this.checkPassword('password', 'confirmPassword') });
 
     formError: boolean = false;
 
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     ngOnInit(): void { }
 
     onSubmit() {
-        if (this.formRegister.invalid)  {
+        if (this.formRegister.invalid) {
             this.formError = true;
             return;
         } else {
@@ -59,5 +59,19 @@ export class RegisterComponent implements OnInit {
                 );
             }
         )
+    }
+
+    checkPassword(password: string, confirmPassword: string) {
+        return (formGroup: FormGroup) => {
+            const control = formGroup.controls[password];
+            const matchingControl = formGroup.controls[confirmPassword];
+            if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+                return;
+            }
+            if (control.value !== matchingControl.value) {
+                matchingControl.setErrors({ incorrect: true });
+                this.formError = (matchingControl.valid) ? true : false;
+            } 
+        }
     }
 }

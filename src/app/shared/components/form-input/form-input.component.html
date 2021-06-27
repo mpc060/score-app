@@ -5,7 +5,7 @@
         <mat-label>{{ label }}</mat-label>
 
         <ng-container>
-            <input matInput [maxlength]="maxLength" [formControl]="inputField"
+            <input matInput [maxlength]="maxLength" [formControl]="inputField" [type]="type"
                 (ngModelChange)="selectedChangeValue($event);">
         </ng-container>
 

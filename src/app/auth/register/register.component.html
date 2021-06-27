@@ -64,14 +64,16 @@
         <div class="form">
             <app-form-input label="Senha"                            
                             [form]="formRegister"
-                            [nameControl]="'password1'"
-                            [formError]="formError">
+                            [nameControl]="'password'"
+                            [formError]="formError"
+                            [type]="'password'">
             </app-form-input>
 
-            <app-form-input label="Comfirmar senha"                            
+            <app-form-input label="Confirmar senha"                            
                             [form]="formRegister"
-                            [nameControl]="'password2'"
-                            [formError]="formError">
+                            [nameControl]="'confirmPassword'"
+                            [formError]="formError"
+                            [type]="'password'">
             </app-form-input>
         </div>
 
