@@ -5,8 +5,8 @@
         <mat-label>{{ label }}</mat-label>
 
         <ng-container>
-            <input matInput [maxlength]="maxLength" [formControl]="inputField" [type]="type"
-                (ngModelChange)="selectedChangeValue($event);">
+            <input matInput [maxlength]="maxLength" [formControl]="inputField" [type]="type" [mask]="mask"
+                (ngModelChange)="selectedChangeValue($event);" >
         </ng-container>
 
         <span *ngIf="inputField.touched && inputField.errors">Campo inválido!</span>

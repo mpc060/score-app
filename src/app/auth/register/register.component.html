@@ -52,12 +52,14 @@
             <app-form-input label="Telefone"                            
                             [form]="formRegister"
                             [nameControl]="'phone'"
-                            [formError]="formError">
+                            [formError]="formError"
+                            [mask]="'(00) 0000-0000'">
             </app-form-input>
             <app-form-input label="Celular"                            
                             [form]="formRegister"
                             [nameControl]="'mobilephone'"
-                            [formError]="formError">
+                            [formError]="formError"
+                            [mask]="'(00) 0000-0000'">
             </app-form-input>
         </div>
 

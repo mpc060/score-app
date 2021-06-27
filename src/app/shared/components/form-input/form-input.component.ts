@@ -17,9 +17,11 @@ export class FormInputComponent implements OnInit {
 
     @Input() nameControl: string;
 
-    @Input() type;
+    @Input() type: string;
 
     @Input() formError: boolean;
+
+    @Input() mask: string;
 
     @Output() selectedChange = new EventEmitter();
 

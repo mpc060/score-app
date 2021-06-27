@@ -65,13 +65,15 @@ export class RegisterComponent implements OnInit {
         return (formGroup: FormGroup) => {
             const control = formGroup.controls[password];
             const matchingControl = formGroup.controls[confirmPassword];
-            if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-                return;
+            if ( control.value.length >=5 ) {
+                if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+                    return;
+                }
+                if (control.value !== matchingControl.value) {
+                    matchingControl.setErrors({ incorrect: true });
+                    this.formError = (matchingControl.valid) ? true : false;
+                } 
             }
-            if (control.value !== matchingControl.value) {
-                matchingControl.setErrors({ incorrect: true });
-                this.formError = (matchingControl.valid) ? true : false;
-            } 
         }
     }
 }

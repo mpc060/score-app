@@ -10,6 +10,9 @@ import { TableComponent } from './components/table/table.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
     imports: [
@@ -21,7 +24,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         FormsModule,
         CommonModule,
         RouterModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+
+        NgxMaskModule.forRoot(),
     ],
     exports: [
         FormInputComponent,
