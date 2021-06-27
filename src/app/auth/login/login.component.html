@@ -8,13 +8,13 @@
             <app-form-input label="Email"                            
                             [form]="formLogin"
                             [nameControl]="'email'"
-                            [formError]="formError">
+                            [formError]="isformError">
             </app-form-input>
 
             <app-form-input label="Senha"                            
                             [form]="formLogin"
                             [nameControl]="'password'"
-                            [formError]="formError"
+                            [formError]="isformError"
                             [type]="'password'">
             </app-form-input>
 

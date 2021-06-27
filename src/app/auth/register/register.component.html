@@ -8,13 +8,13 @@
             <app-form-input label="Nome"                   
                             [form]="formRegister"
                             [nameControl]="'firstname'"
-                            [formError]="formError">
+                            [formError]="isformError">
             </app-form-input>
 
             <app-form-input label="Sobrenome"                            
                             [form]="formRegister"
                             [nameControl]="'lastname'"
-                            [formError]="formError">
+                            [formError]="isformError">
             </app-form-input>
         </div>
 
@@ -22,7 +22,7 @@
             <app-form-input label="Email"                            
                             [form]="formRegister"
                             [nameControl]="'email'"
-                            [formError]="formError">
+                            [formError]="isformError">
             </app-form-input>
         </div>
 
@@ -30,13 +30,13 @@
             <app-form-input label="Estado"                            
                             [form]="formRegister"
                             [nameControl]="'state'"
-                            [formError]="formError">
+                            [formError]="isformError">
             </app-form-input>
 
             <app-form-input label="Cidade"                            
                             [form]="formRegister"
                             [nameControl]="'city'"
-                            [formError]="formError">
+                            [formError]="isformError">
             </app-form-input>
         </div>
 
@@ -44,7 +44,7 @@
             <app-form-input label="Endrereço"                            
                             [form]="formRegister"
                             [nameControl]="'address'"
-                            [formError]="formError">
+                            [formError]="isformError">
             </app-form-input>
         </div>
 
@@ -52,13 +52,13 @@
             <app-form-input label="Telefone"                            
                             [form]="formRegister"
                             [nameControl]="'phone'"
-                            [formError]="formError"
+                            [formError]="isformError"
                             [mask]="'(00) 0000-0000'">
             </app-form-input>
             <app-form-input label="Celular"                            
                             [form]="formRegister"
                             [nameControl]="'mobilephone'"
-                            [formError]="formError"
+                            [formError]="isformError"
                             [mask]="'(00) 0000-0000'">
             </app-form-input>
         </div>
@@ -67,14 +67,14 @@
             <app-form-input label="Senha"                            
                             [form]="formRegister"
                             [nameControl]="'password'"
-                            [formError]="formError"
+                            [formError]="isformError"
                             [type]="'password'">
             </app-form-input>
 
             <app-form-input label="Confirmar senha"                            
                             [form]="formRegister"
                             [nameControl]="'confirmPassword'"
-                            [formError]="formError"
+                            [formError]="isformError"
                             [type]="'password'">
             </app-form-input>
         </div>

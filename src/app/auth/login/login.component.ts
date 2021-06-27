@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
         'password': ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
     });
 
-    formError: boolean = false;
+    isformError: boolean = false;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -29,10 +29,10 @@ export class LoginComponent implements OnInit {
 
     onSubmit() {
         if (this.formLogin.invalid)  {
-            this.formError = true;
+            this.isformError = true;
             return;
         } else {
-            this.formError = false;
+            this.isformError = false;
         }
 
         this.authService.login(this.formLogin.value).subscribe(

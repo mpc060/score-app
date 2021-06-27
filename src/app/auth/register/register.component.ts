@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
         'confirmPassword': ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
     }, { validator: this.checkPassword('password', 'confirmPassword') });
 
-    formError: boolean = false;
+    isformError: boolean = false;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -38,10 +38,10 @@ export class RegisterComponent implements OnInit {
 
     onSubmit() {
         if (this.formRegister.invalid) {
-            this.formError = true;
+            this.isformError = true;
             return;
         } else {
-            this.formError = false;
+            this.isformError = false;
         }
 
         let user: User = { ...this.formRegister.value, password: this.formRegister.value.password1 };
@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
                 }
                 if (control.value !== matchingControl.value) {
                     matchingControl.setErrors({ incorrect: true });
-                    this.formError = (matchingControl.valid) ? true : false;
+                    this.isformError = (matchingControl.valid) ? true : false;
                 } 
             }
         }
