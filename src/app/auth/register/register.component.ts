@@ -1,9 +1,10 @@
-import { AuthService } from './../../shared/services/auth/auth.service';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { User } from 'src/app/shared/models/user/user';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { User } from 'src/app/shared/models/user/user';
+import { AuthService } from 'src/app/shared/services/auth/auth.service';
 
 @Component({
     selector: 'app-register',
@@ -13,17 +14,19 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
     formRegister = this.formBuilder.group({
-        'firstname': ['', [Validators.required]],
-        'lastname': ['', [Validators.required]],
-        'address': ['', [Validators.required]],
-        'city': ['', [Validators.required]],
-        'state': ['', [Validators.required]],
+        'firstname': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(16)]],
+        'lastname': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(16)]],
+        'address': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(32)]],
+        'city': ['', [Validators.required, Validators.minLength(3),Validators.maxLength(16)]],
+        'state': ['', [Validators.required, Validators.minLength(2)]],
         'phone': ['', [Validators.required]],
         'mobilephone': ['', [Validators.required]],
         'email': ['', [Validators.required, Validators.email]],
-        'password1': ['', [Validators.required, Validators.minLength(6)]],
-        'password2': ['', [Validators.required, Validators.minLength(6)]],
+        'password1': ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
+        'password2': ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
     });
+
+    formError: boolean = false;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -34,9 +37,16 @@ export class RegisterComponent implements OnInit {
     ngOnInit(): void { }
 
     onSubmit() {
-        let u: User = { ...this.formRegister.value, password: this.formRegister.value.password1 };
+        if (this.formRegister.invalid)  {
+            this.formError = true;
+            return;
+        } else {
+            this.formError = false;
+        }
 
-        this.authService.register(u).subscribe((res) => {
+        let user: User = { ...this.formRegister.value, password: this.formRegister.value.password1 };
+
+        this.authService.register(user).subscribe((res) => {
             this.snackBar.open(
                 'Registro realizado com sucesso!. Use as credências para acessa a sua conta!',
                 'Ok', { duration: 2000 }

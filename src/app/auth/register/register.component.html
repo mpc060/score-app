@@ -5,35 +5,74 @@
         <div class="title"> Cadastro </div>
 
         <div class="form">
-            <app-form-input label="Firstname" [(selected)]="formRegister.value.firstname"></app-form-input>
+            <app-form-input label="Nome"                   
+                            [form]="formRegister"
+                            [nameControl]="'firstname'"
+                            [formError]="formError">
+            </app-form-input>
 
-            <app-form-input label="Lastname" [(selected)]="formRegister.value.lastname"></app-form-input>
+            <app-form-input label="Sobrenome"                            
+                            [form]="formRegister"
+                            [nameControl]="'lastname'"
+                            [formError]="formError">
+            </app-form-input>
         </div>
 
         <div class="form">
-            <app-form-input label="email" [(selected)]="formRegister.value.email"></app-form-input>
+            <app-form-input label="Email"                            
+                            [form]="formRegister"
+                            [nameControl]="'email'"
+                            [formError]="formError">
+            </app-form-input>
         </div>
 
         <div class="form">
-            <app-form-input label="state" [(selected)]="formRegister.value.state"></app-form-input>
+            <app-form-input label="Estado"                            
+                            [form]="formRegister"
+                            [nameControl]="'state'"
+                            [formError]="formError">
+            </app-form-input>
 
-            <app-form-input label="city" [(selected)]="formRegister.value.city"></app-form-input>
+            <app-form-input label="Cidade"                            
+                            [form]="formRegister"
+                            [nameControl]="'city'"
+                            [formError]="formError">
+            </app-form-input>
         </div>
 
         <div class="form">
-            <app-form-input label="address" [(selected)]="formRegister.value.address"></app-form-input>
+            <app-form-input label="Endrereço"                            
+                            [form]="formRegister"
+                            [nameControl]="'address'"
+                            [formError]="formError">
+            </app-form-input>
         </div>
 
         <div class="form">
-            <app-form-input label="phone" [(selected)]="formRegister.value.phone"></app-form-input>
-
-            <app-form-input label="mobilephone" [(selected)]="formRegister.value.mobilephone"></app-form-input>
+            <app-form-input label="Telefone"                            
+                            [form]="formRegister"
+                            [nameControl]="'phone'"
+                            [formError]="formError">
+            </app-form-input>
+            <app-form-input label="Celular"                            
+                            [form]="formRegister"
+                            [nameControl]="'mobilephone'"
+                            [formError]="formError">
+            </app-form-input>
         </div>
 
         <div class="form">
-            <app-form-input label="password1" [(selected)]="formRegister.value.password1"></app-form-input>
+            <app-form-input label="Senha"                            
+                            [form]="formRegister"
+                            [nameControl]="'password1'"
+                            [formError]="formError">
+            </app-form-input>
 
-            <app-form-input label="password2" [(selected)]="formRegister.value.password2"></app-form-input>
+            <app-form-input label="Comfirmar senha"                            
+                            [form]="formRegister"
+                            [nameControl]="'password2'"
+                            [formError]="formError">
+            </app-form-input>
         </div>
 
         <div class="button" (click)="onSubmit()">

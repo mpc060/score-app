@@ -5,9 +5,18 @@
         <div class="title"> Login </div>
 
         <div class="form">
-            <app-form-input label="Email" [(selected)]="formLogin.value.email"></app-form-input>
+            <app-form-input label="Email"                            
+                            [form]="formLogin"
+                            [nameControl]="'email'"
+                            [formError]="formError">
+            </app-form-input>
 
-            <app-form-input label="Senha" [(selected)]="formLogin.value.password"></app-form-input>
+            <app-form-input label="Senha"                            
+                            [form]="formLogin"
+                            [nameControl]="'password'"
+                            [formError]="formError">
+            </app-form-input>
+
         </div>
 
         <div class="button" (click)="onSubmit()">

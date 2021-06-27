@@ -1,24 +1,34 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-form-input',
     templateUrl: './form-input.component.html',
     styleUrls: ['./form-input.component.scss']
 })
-export class FormInputComponent {
 
+export class FormInputComponent implements OnInit {
+    
     @Input() label: string;
 
     @Input() maxLength: string;
 
-    @Input() selected: string;
+    @Input() form: any; 
 
-    @Input() validate: any;
+    @Input() nameControl: string;
+
+    @Input() formError: boolean;
 
     @Output() selectedChange = new EventEmitter();
 
-    selectedChangeValue(val: any) {
-        this.selectedChange.emit(val);
+    inputField: FormControl;   
+
+    ngOnInit() {
+        this.inputField = this.form.controls[this.nameControl];
     }
 
+    selectedChangeValue(val: any) {
+        this.inputField.markAsTouched();
+        this.selectedChange.emit(val);
+    }
 }

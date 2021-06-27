@@ -1,13 +1,17 @@
 <div id="form-input-text">
-    <mat-form-field class="full-width" appearance="outline">
+    <mat-form-field class="full-width" appearance="outline"
+        [ngClass]="inputField.errors && formError ? 'mat-form-field-invalid': '' ">
+        
         <mat-label>{{ label }}</mat-label>
 
         <ng-container>
-            <input matInput [maxlength]="maxLength" [(ngModel)]="selected"
+            <input matInput [maxlength]="maxLength" [formControl]="inputField"
                 (ngModelChange)="selectedChangeValue($event);">
         </ng-container>
 
-        <span *ngIf="validate?.error" [innerHTML]="validate?.message" class="error"></span>
+        <span *ngIf="inputField.touched && inputField.errors">Campo inválido!</span>
+
+        <span *ngIf="!inputField.touched && formError">Campo inválido!</span>
 
     </mat-form-field>
 </div>

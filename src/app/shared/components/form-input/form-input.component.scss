@@ -6,5 +6,10 @@
 
     .full-width {
         width: 100%;
+
+        span {
+            color: var(--redColor);
+            font-size: 0.8em;
+        }
     }
 }

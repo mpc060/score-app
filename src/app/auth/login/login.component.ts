@@ -1,21 +1,23 @@
-import { AuthService } from './../../shared/services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth/auth.service';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
     formLogin = this.formBuilder.group({
         'email': ['', [Validators.required, Validators.email]],
-        'password': ['', [Validators.required, Validators.minLength(6)]],
+        'password': ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
     });
+
+    formError: boolean = false;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -23,19 +25,17 @@ export class LoginComponent implements OnInit {
         private snackBar: MatSnackBar,
         private router: Router) { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {}
 
     onSubmit() {
-        if (this.formLogin.errors) {
-            this.snackBar.open(
-                'Formulário inválido!', '', { duration: 2000 }
-            );
+        if (this.formLogin.invalid)  {
+            this.formError = true;
             return;
+        } else {
+            this.formError = false;
         }
 
-        const credentials = this.formLogin.value;
-
-        this.authService.login(credentials).subscribe(
+        this.authService.login(this.formLogin.value).subscribe(
             user => {
                 this.snackBar.open(
                     'Sucesso. Bem vindo ' + user.firstname + '!', 'OK',
