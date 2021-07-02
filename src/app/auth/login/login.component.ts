@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
     formLogin = this.formBuilder.group({
         'email': ['', [Validators.required, Validators.email]],
-        'password': ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
+        'password': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(24)]],
     });
 
     isformError: boolean = false;

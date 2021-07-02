@@ -16,12 +16,14 @@ export class ProductsComponent implements OnInit {
 
     dataTable: Observable<any[]>;
 
+    cols: number = 3;
+
     constructor(private productService: ProductsService) { }
 
     ngOnInit(): void {
         this.products$ = this.productService.getProducts();
 
-        this.header = ['_id', 'Name', 'Department', 'Price', '__v'];
+        this.header = [ 'Name', 'Department', 'Price' ];
     }
 
 }

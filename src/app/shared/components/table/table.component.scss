@@ -45,8 +45,13 @@
                 border-radius: 5px;
               
                 div {
-                  font-size: 12px;
+                    font-size: 12px;
                 }
+
+                div + div {
+                    margin-left: 20px;
+                }
+
                 .center {
                     align-self: center;
                     cursor: context-menu;
